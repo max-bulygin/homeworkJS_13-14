@@ -1,6 +1,6 @@
 var QA = [
     {
-        question: "2+2",
+        question: "Сколько будет 2+2",
         answers: [
             "4",
             "2",
@@ -8,7 +8,7 @@ var QA = [
         ]
     },
     {
-        question: "2+4",
+        question: "Сколько будет 2+4",
         answers: [
             "6",
             "3",
@@ -25,7 +25,7 @@ function Question (obj) {
 
 Question.prototype.shuffle = function () {
     var a = this.allOptions,                //array with answer options
-        l = a.length;                       //random number limit
+        l = a.length,                       //random number limit
         n = Math.floor(Math.random()*l),    //shuffle array n times
         t;                                  //temporary value container
 
@@ -35,10 +35,36 @@ Question.prototype.shuffle = function () {
     }
 
     return a;
-}
+};
+
+Question.prototype.toHTML = function () {
+    var output = '<li><h3>';
+    output += this.question + '</h3>';
+    for (var i = 0; i < this.allOptions.length; i++){
+        output += '<p><label><input type="checkbox"> ';
+        output += this.allOptions[i];
+        output += '</label></p>';
+    }
+    output += '</li>';
+    return output;
+};
+
+// Question.prototype.toHTML = function () {
+//     var output = '<li><h3>';
+//     output += this.question + '</h3>';
+//     for (var i = 0; i < this.allOptions.length; i++){
+//         output += '<p><label><input type="checkbox"> ';
+//         output += this.allOptions[i];
+//         output += '</label></p>';
+//     }
+//     output += '</li>';
+//     return output;
+// };
+
+// Question.prototype.initQuestion = function () {
+//     this.toHTML();
+// };
 
 var question1 = new Question(QA[0]);
-
-console.log(question1.allOptions);
-alert(question1.correctAnswer);
-alert(question1.shuffle());
+document.write(question1.shuffle());
+document.write(question1.toHTML());

@@ -1,8 +1,8 @@
 var progTest = (function() {
     var createTest = {
         header: "Тест по программированию",
-        question: "Вопрос №",
-        answer: " Вариант ответа №",
+        question: "Вопрос: сколько будет ",
+        answer: " Вариант ответа: ",
         button: "Проверить мои результаты",
         getDiv: function (tagName, clName) {
             var tag = document.createElement(tagName);
@@ -30,19 +30,20 @@ var progTest = (function() {
         getQuestions: function () {
             var listItems = document.querySelectorAll('.list-item');
 
-            for (var i = 0; i < listItems.length; i++) {
-                listItems[i].innerHTML = "<h3>" + this.question + (i + 1) + "</h3>";
+            for (var i = 0; i < QA.length; i++) {
+                listItems[i].innerHTML = "<h3>" + this.question + QA[i].question + "</h3>";
             }
         },
         getAnswers: function () {
             var listItems = document.querySelectorAll('.list-item');
 
-            for (var i = 0; i < listItems.length; i++) {
-                for (var j = 0; j < 3; j++) {
+            for (var i = 0; i < QA.length; i++) {
+                var answersCollection = QA[i].answers;
+                for (var j = 0; j < answersCollection.length; j++) {
                     var tag = document.createElement('p');
 
                     listItems[i].appendChild(tag);
-                    tag.innerHTML = '<label><input type="checkbox"> ' + this.answer + (j + 1) + '</label>';
+                    tag.innerHTML = '<label><input type="checkbox"> ' + this.answer + answersCollection[j] + '</label>';
                 }
             }
         },
