@@ -14,25 +14,38 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- LoDash library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
+
 <script type="text/template" id="quiz">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Тест по программированию</h1>
+                <h1><%=title%></h1>
+                <ol>
+                    <li><h3><%= question %></h3>
+                        <% for (var i=0; i< answers.length; i++) {%>
+                        <p><label><input type="radio">
+                            <%=answers[i]%>
+                        </label></p>
+                        <% } %>
+                    </li>
+                </ol>
             </div>
         </div>
     </div>
 </script>
-<script type="text/template" id="list-item">
-    <li><h3><%- question %></h3>
-        <p><label><input type="radio"> <%- answers %></label></p>
-        <p><label><input type="radio"> <%- answers %></label></p>
-        <p><label><input type="radio"> <%- answers %></label></p>
+
+<script type="text/template" id="listItem">
+    <li><h3><%= question %></h3>
+        <% for (var i=0; i< answers.length; i++) {%>
+            <p><label><input type="radio">
+                <%=answers[i]%>
+            </label></p>
+        <% } %>
     </li>
 </script>
 <!--<div class="container">-->
@@ -64,7 +77,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
+<script src="js/tmpl.js"></script>
+<script src="js/quiz.js"></script>
 <script src="js/questions.js"></script>
-<!--<script src="js/index.js"></script>-->
 </body>
 </html>
