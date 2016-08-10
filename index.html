@@ -26,57 +26,26 @@
             <div class="col-md-12">
                 <h1><%=title%></h1>
                 <ol>
-                    <li><h3><%= question %></h3>
-                        <% for (var i=0; i< answers.length; i++) {%>
-                        <p><label><input type="radio">
-                            <%=answers[i]%>
+                    <% for (var j = 0; j < QA.length; j++) {%>
+                    <li><h3><%= QA[j].question %></h3>
+                        <% for (var i = 0; i < QA[j].answers.length; i++) {%>
+                        <p><label><input type="radio" name="question<%=j%>">
+                            <%=QA[j].answers[i]%>
                         </label></p>
                         <% } %>
                     </li>
+                    <% } %>
                 </ol>
+                <button class="btn" id="submit">Проверить мои результаты</button>
             </div>
         </div>
     </div>
 </script>
 
-<script type="text/template" id="listItem">
-    <li><h3><%= question %></h3>
-        <% for (var i=0; i< answers.length; i++) {%>
-            <p><label><input type="radio">
-                <%=answers[i]%>
-            </label></p>
-        <% } %>
-    </li>
-</script>
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<div class="col-md-12">-->
-            <!--<h1>Тест по программированию</h1>-->
-            <!--<ol>-->
-                <!--<li><h3>Вопрос №1</h3>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №1</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №2</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №3</label></p>-->
-                <!--</li>-->
-                <!--<li><h3>Вопрос №2</h3>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №1</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №2</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №3</label></p>-->
-                <!--</li>-->
-                <!--<li><h3>Вопрос №3</h3>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №1</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №2</label></p>-->
-                    <!--<p><label><input type="checkbox"> Вариант ответа №3</label></p>-->
-                <!--</li>-->
-            <!--</ol>-->
-            <!--<button class="btn">Проверить мои результаты</button>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<!--<script src="js/bootstrap.min.js"></script>-->
 <script src="js/tmpl.js"></script>
 <script src="js/quiz.js"></script>
 <script src="js/questions.js"></script>
