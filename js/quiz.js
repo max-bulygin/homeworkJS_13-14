@@ -4,9 +4,9 @@ var quiz = {
         {
             question: "Сколько будет 2+2",
             answers: [
-                "4",
-                "2",
-                "1"
+                "четыре",   //correct answer should be written first
+                "два",
+                "один"
             ]
         },
         {
@@ -19,3 +19,4 @@ var quiz = {
         }
     ]
 };
+//
