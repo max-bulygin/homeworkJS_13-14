@@ -1,3 +1,4 @@
+'use strict';
 function Quiz(obj) {
     this.quizObject = obj;
     this.title = obj.title;
@@ -35,7 +36,7 @@ Quiz.prototype.correctAnswers = function () {
         array.push(elem.answers[0]);
     });
     return array;
-}
+};
 
 /*
  * Render html with template
@@ -43,20 +44,20 @@ Quiz.prototype.correctAnswers = function () {
 
 Quiz.prototype.toHTML = function () {
     var html = document.body;
-    html.innerHTML = tmpl("quiz", this.quizObject);
+    html.innerHTML = tmpl('quiz', this.quizObject);
 };
 
 /*
  * getAnswers checks every input element and pushes the checked answers
- * to userAnswers array.
+ * to checkedAnswers array.
  */
 
 Quiz.prototype.getAnswers = function () {
-    var inputs = document.getElementsByTagName("input");
+    var inputs = document.getElementsByTagName('input');
     var submitButton = document.getElementById('submit');
     var checkedAnswers = [];
 
-    submitButton.addEventListener("click", function () {
+    submitButton.addEventListener('click', function () {
         for (var i = 0; i < inputs.length; i++) {
             if (inputs[i].checked) {
                 var a = inputs[i].nextSibling.data;
@@ -67,12 +68,17 @@ Quiz.prototype.getAnswers = function () {
     return checkedAnswers;
 };
 
+/*
+ * compareAnswers checks how many user answers match to correct answers
+ * and returns that number
+ */
+
 Quiz.prototype.compareAnswers = function () {
     var count = 0;
     var a = this.corrects;
     var b = this.ua;
     for (var i = 0; i < a.length; i++) {
-        if ( b[i].includes(a[i]) ) count += 1;
+        if (b[i].includes(a[i])) count += 1;
     }
-    console.log(count);
+    return count;
 };
