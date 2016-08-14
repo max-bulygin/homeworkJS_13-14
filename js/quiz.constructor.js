@@ -43,7 +43,7 @@ Quiz.prototype.correctAnswers = function () {
  */
 
 Quiz.prototype.toHTML = function () {
-    var html = document.body;
+    var html = document.getElementById('testContainer');
     html.innerHTML = tmpl('quiz', this.quizObject);
 };
 

@@ -15,37 +15,56 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!--<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>-->
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
-
-<script type="text/template" id="quiz">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1><%=title%></h1>
-                <ol>
-                    <% for (var j = 0; j < QA.length; j++) {%>
-                    <li><h3><%= QA[j].question %></h3>
-                        <% for (var i = 0; i < QA[j].answers.length; i++) {%>
-                        <p><label><input type="radio" name="question<%=j%>">
-                            <%=QA[j].answers[i]%>
-                        </label></p>
+<div class="container" id="testContainer">
+    <script type="text/template" id="quiz">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1><%=title%></h1>
+                    <ol>
+                        <% for (var j = 0; j < QA.length; j++) {%>
+                        <li><h3><%= QA[j].question %></h3>
+                            <% for (var i = 0; i < QA[j].answers.length; i++) {%>
+                            <p><label><input type="radio" name="question<%=j%>">
+                                <%=QA[j].answers[i]%>
+                            </label></p>
+                            <% } %>
+                        </li>
                         <% } %>
-                    </li>
-                    <% } %>
-                </ol>
-                <button class="btn" id="submit">Проверить мои результаты</button>
+                    </ol>
+                    <button type="button" class="btn" id="submit" data-toggle="modal" data-target="#myModal">Проверить мои результаты</button>
+                </div>
+            </div>
+    </script>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog">
+    <div class="modal-wrapper">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modalTitle"></h4>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
             </div>
         </div>
-    </div>
-</script>
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<!--<script src="js/bootstrap.min.js"></script>-->
+    </div>
+</div>
+
 <script src="js/tmpl.js"></script>
 <script src="js/questions.js"></script>
 <script src="js/quiz.constructor.js"></script>
