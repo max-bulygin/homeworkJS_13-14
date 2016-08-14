@@ -1,6 +1,7 @@
 #myModal {
-    background-color: rgba(28,60,80,.8);
+    background-color: rgba(28, 60, 80, .8);
 }
+
 .modal-wrapper {
     width: 50rem;
     max-width: 90%;
@@ -9,7 +10,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     font-family: Arial, sans-serif;
     font-weight: bold;
 }
