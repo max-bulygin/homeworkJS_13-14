@@ -1,3 +1,4 @@
+//This is the old version of  this quiz. Please disregard.
 var progTest = (function() {
     var createTest = {
         header: "Тест по программированию",

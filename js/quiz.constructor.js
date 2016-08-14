@@ -1,3 +1,4 @@
+//When wrapping all this code into self executing function what should I return?
 'use strict';
 function Quiz(obj) {
     this.quizObject = obj;
