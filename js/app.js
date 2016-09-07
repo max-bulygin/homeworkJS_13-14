@@ -58,4 +58,5 @@ submitButton.addEventListener('click', function () {
 var close = document.getElementById('close');
 close.addEventListener('click', function () {
     hideModal();
+    location.reload();
 });
